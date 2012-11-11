@@ -1,6 +1,6 @@
 // @SOURCE:C:/play-2.0.3/musicNearby/conf/routes
-// @HASH:375bc9c0b1543cd2717f4e496c5d058168e56ff4
-// @DATE:Fri Nov 02 00:40:51 CET 2012
+// @HASH:112fa5161867ade4e4d98144a97894c7c679af19
+// @DATE:Wed Nov 07 23:27:19 CET 2012
 
 import play.core._
 import play.core.Router._
@@ -20,27 +20,32 @@ import Router.queryString
 // @LINE:11
 // @LINE:10
 // @LINE:9
-// @LINE:6
+// @LINE:7
 package controllers {
 
-// @LINE:19
-// @LINE:6
+// @LINE:16
+// @LINE:15
+// @LINE:14
 class ReverseSoundProjects {
     
 
 
  
-// @LINE:19
-// @LINE:6
+// @LINE:15
+def add() = {
+   Call("POST", "/soundProjects")
+}
+                                                        
+ 
+// @LINE:16
+def delete(project:Long) = {
+   Call("DELETE", "/soundProjects/" + implicitly[PathBindable[Long]].unbind("project", project))
+}
+                                                        
+ 
+// @LINE:14
 def index() = {
-   () match {
-// @LINE:6
-case () if true => Call("GET", "/")
-                                                                
-// @LINE:19
-case () if true => Call("GET", "/soundProjects")
-                                                                    
-   }
+   Call("GET", "/soundProjects")
 }
                                                         
 
@@ -49,26 +54,19 @@ case () if true => Call("GET", "/soundProjects")
 }
                             
 
-// @LINE:16
-// @LINE:15
-// @LINE:14
+// @LINE:19
 // @LINE:11
 // @LINE:10
 // @LINE:9
+// @LINE:7
 class ReverseApplication {
     
 
 
  
-// @LINE:15
-def newTask() = {
-   Call("POST", "/tasks")
-}
-                                                        
- 
-// @LINE:9
-def login() = {
-   Call("GET", "/login")
+// @LINE:10
+def authenticate() = {
+   Call("POST", "/login")
 }
                                                         
  
@@ -78,21 +76,23 @@ def logout() = {
 }
                                                         
  
-// @LINE:16
-def deleteTask(id:Long) = {
-   Call("POST", "/tasks/" + implicitly[PathBindable[Long]].unbind("id", id) + "/delete")
+// @LINE:9
+// @LINE:7
+def login() = {
+   () match {
+// @LINE:7
+case () if true => Call("GET", "/")
+                                                                
+// @LINE:9
+case () if true => Call("GET", "/login")
+                                                                    
+   }
 }
                                                         
  
-// @LINE:10
-def authenticate() = {
-   Call("POST", "/login")
-}
-                                                        
- 
-// @LINE:14
-def tasks() = {
-   Call("GET", "/tasks")
+// @LINE:19
+def javascriptRoutes() = {
+   Call("GET", "/assets/javascripts/routes")
 }
                                                         
 
@@ -129,28 +129,45 @@ def at(file:String) = {
 // @LINE:11
 // @LINE:10
 // @LINE:9
-// @LINE:6
+// @LINE:7
 package controllers.javascript {
 
-// @LINE:19
-// @LINE:6
+// @LINE:16
+// @LINE:15
+// @LINE:14
 class ReverseSoundProjects {
     
 
 
  
-// @LINE:19
-// @LINE:6
+// @LINE:15
+def add = JavascriptReverseRoute(
+   "controllers.SoundProjects.add",
+   """
+      function() {
+      return _wA({method:"POST", url:"/soundProjects"})
+      }
+   """
+)
+                                                        
+ 
+// @LINE:16
+def delete = JavascriptReverseRoute(
+   "controllers.SoundProjects.delete",
+   """
+      function(project) {
+      return _wA({method:"DELETE", url:"/soundProjects/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("project", project)})
+      }
+   """
+)
+                                                        
+ 
+// @LINE:14
 def index = JavascriptReverseRoute(
    "controllers.SoundProjects.index",
    """
       function() {
-      if (true) {
-      return _wA({method:"GET", url:"/"})
-      }
-      if (true) {
       return _wA({method:"GET", url:"/soundProjects"})
-      }
       }
    """
 )
@@ -161,34 +178,22 @@ def index = JavascriptReverseRoute(
 }
                             
 
-// @LINE:16
-// @LINE:15
-// @LINE:14
+// @LINE:19
 // @LINE:11
 // @LINE:10
 // @LINE:9
+// @LINE:7
 class ReverseApplication {
     
 
 
  
-// @LINE:15
-def newTask = JavascriptReverseRoute(
-   "controllers.Application.newTask",
+// @LINE:10
+def authenticate = JavascriptReverseRoute(
+   "controllers.Application.authenticate",
    """
       function() {
-      return _wA({method:"POST", url:"/tasks"})
-      }
-   """
-)
-                                                        
- 
-// @LINE:9
-def login = JavascriptReverseRoute(
-   "controllers.Application.login",
-   """
-      function() {
-      return _wA({method:"GET", url:"/login"})
+      return _wA({method:"POST", url:"/login"})
       }
    """
 )
@@ -205,34 +210,29 @@ def logout = JavascriptReverseRoute(
 )
                                                         
  
-// @LINE:16
-def deleteTask = JavascriptReverseRoute(
-   "controllers.Application.deleteTask",
+// @LINE:9
+// @LINE:7
+def login = JavascriptReverseRoute(
+   "controllers.Application.login",
    """
-      function(id) {
-      return _wA({method:"POST", url:"/tasks/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id) + "/delete"})
+      function() {
+      if (true) {
+      return _wA({method:"GET", url:"/"})
+      }
+      if (true) {
+      return _wA({method:"GET", url:"/login"})
+      }
       }
    """
 )
                                                         
  
-// @LINE:10
-def authenticate = JavascriptReverseRoute(
-   "controllers.Application.authenticate",
+// @LINE:19
+def javascriptRoutes = JavascriptReverseRoute(
+   "controllers.Application.javascriptRoutes",
    """
       function() {
-      return _wA({method:"POST", url:"/login"})
-      }
-   """
-)
-                                                        
- 
-// @LINE:14
-def tasks = JavascriptReverseRoute(
-   "controllers.Application.tasks",
-   """
-      function() {
-      return _wA({method:"GET", url:"/tasks"})
+      return _wA({method:"GET", url:"/assets/javascripts/routes"})
       }
    """
 )
@@ -276,17 +276,30 @@ def at = JavascriptReverseRoute(
 // @LINE:11
 // @LINE:10
 // @LINE:9
-// @LINE:6
+// @LINE:7
 package controllers.ref {
 
-// @LINE:19
-// @LINE:6
+// @LINE:16
+// @LINE:15
+// @LINE:14
 class ReverseSoundProjects {
     
 
 
  
-// @LINE:6
+// @LINE:15
+def add() = new play.api.mvc.HandlerRef(
+   controllers.SoundProjects.add(), HandlerDef(this, "controllers.SoundProjects", "add", Seq())
+)
+                              
+ 
+// @LINE:16
+def delete(project:Long) = new play.api.mvc.HandlerRef(
+   controllers.SoundProjects.delete(project), HandlerDef(this, "controllers.SoundProjects", "delete", Seq(classOf[Long]))
+)
+                              
+ 
+// @LINE:14
 def index() = new play.api.mvc.HandlerRef(
    controllers.SoundProjects.index(), HandlerDef(this, "controllers.SoundProjects", "index", Seq())
 )
@@ -297,26 +310,19 @@ def index() = new play.api.mvc.HandlerRef(
 }
                             
 
-// @LINE:16
-// @LINE:15
-// @LINE:14
+// @LINE:19
 // @LINE:11
 // @LINE:10
 // @LINE:9
+// @LINE:7
 class ReverseApplication {
     
 
 
  
-// @LINE:15
-def newTask() = new play.api.mvc.HandlerRef(
-   controllers.Application.newTask(), HandlerDef(this, "controllers.Application", "newTask", Seq())
-)
-                              
- 
-// @LINE:9
-def login() = new play.api.mvc.HandlerRef(
-   controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq())
+// @LINE:10
+def authenticate() = new play.api.mvc.HandlerRef(
+   controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Seq())
 )
                               
  
@@ -326,21 +332,15 @@ def logout() = new play.api.mvc.HandlerRef(
 )
                               
  
-// @LINE:16
-def deleteTask(id:Long) = new play.api.mvc.HandlerRef(
-   controllers.Application.deleteTask(id), HandlerDef(this, "controllers.Application", "deleteTask", Seq(classOf[Long]))
+// @LINE:7
+def login() = new play.api.mvc.HandlerRef(
+   controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq())
 )
                               
  
-// @LINE:10
-def authenticate() = new play.api.mvc.HandlerRef(
-   controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Seq())
-)
-                              
- 
-// @LINE:14
-def tasks() = new play.api.mvc.HandlerRef(
-   controllers.Application.tasks(), HandlerDef(this, "controllers.Application", "tasks", Seq())
+// @LINE:19
+def javascriptRoutes() = new play.api.mvc.HandlerRef(
+   controllers.Application.javascriptRoutes(), HandlerDef(this, "controllers.Application", "javascriptRoutes", Seq())
 )
                               
 

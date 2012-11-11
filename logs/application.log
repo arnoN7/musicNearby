@@ -1,67 +1,129 @@
-2012-11-02 01:07:46,942 - [INFO] - from play in main 
+2012-11-07 23:35:38,305 - [INFO] - from play in main 
 Listening for HTTP on port 9000...
 
-2012-11-02 01:07:51,715 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
-database [default] connected at jdbc:h2:mem:play
-
-2012-11-02 01:07:55,226 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
-Application started (Dev)
-
-2012-11-02 01:09:36,584 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-database [default] connected at jdbc:h2:mem:play
-
-2012-11-02 01:09:38,144 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-Application started (Dev)
-
-2012-11-02 01:12:43,428 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-database [default] connected at jdbc:h2:mem:play
-
-2012-11-02 01:12:44,910 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-Application started (Dev)
-
-2012-11-02 01:12:57,837 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-database [default] connected at jdbc:h2:mem:play
-
-2012-11-02 01:12:59,337 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-Application started (Dev)
-
-2012-11-02 01:29:23,927 - [ERROR] - from application in New I/O  worker #4 
+2012-11-07 23:35:46,401 - [ERROR] - from application in New I/O  worker #1 
 
 
 ! Internal server error, for request [GET /] ->
 
-sbt.PlayExceptions$TemplateCompilationException: Compilation error [Not parsed?]
-	at sbt.PlayCommands$$anonfun$53.apply(PlayCommands.scala:466) ~[na:na]
-	at sbt.PlayCommands$$anonfun$53.apply(PlayCommands.scala:442) ~[na:na]
-	at sbt.Scoped$$anonfun$hf4$1.apply(Structure.scala:475) ~[na:na]
-	at sbt.Scoped$$anonfun$hf4$1.apply(Structure.scala:475) ~[na:na]
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:41) ~[scala-library.jar:0.11.3]
-	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$11.apply(Structure.scala:295) ~[na:na]
-	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$11.apply(Structure.scala:295) ~[na:na]
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:40) ~[na:na]
-	at sbt.std.Transform$$anon$5.work(System.scala:67) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:221) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:221) ~[na:na]
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
-	at sbt.Execute.work(Execute.scala:227) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:221) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:221) ~[na:na]
-	at sbt.CompletionService$$anon$1$$anon$2.call(CompletionService.scala:26) ~[na:na]
-	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.7.0_09]
-	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.7.0_09]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) ~[na:1.7.0_09]
-	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.7.0_09]
-	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.7.0_09]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_09]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_09]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_09]
+sbt.PlayExceptions$CompilationException: Compilation error [error: method render in class mySoundProjects cannot be applied to given types;]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:229) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:226) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:226) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:224) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:183) ~[scala-library.jar:0.11.3]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:224) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:219) ~[na:na]
+	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.11.3]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:219) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
+	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
+	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor.jar:2.0.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
 
-2012-11-02 01:29:45,503 - [ERROR] - from application in New I/O  worker #4 
+2012-11-07 23:36:38,898 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
+database [default] connected at jdbc:h2:mem:play
+
+2012-11-07 23:36:41,271 - [ERROR] - from application in New I/O  worker #1 
+
+
+! @6c9h31koh - Internal server error, for request [GET /] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:427) ~[play_2.9.1.jar:2.0.3]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:448) ~[play_2.9.1.jar:2.0.3]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:414) ~[play_2.9.1.jar:2.0.3]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:412) ~[play_2.9.1.jar:2.0.3]
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:59) ~[scala-library.jar:0.11.3]
+	at scala.collection.immutable.List.foreach(List.scala:45) ~[scala-library.jar:0.11.3]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:412) ~[play_2.9.1.jar:2.0.3]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:60) ~[play_2.9.1.jar:2.0.3]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:60) ~[play_2.9.1.jar:2.0.3]
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:59) ~[scala-library.jar:0.11.3]
+	at scala.collection.immutable.List.foreach(List.scala:45) ~[scala-library.jar:0.11.3]
+	at play.api.Play$.start(Play.scala:60) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3$$anonfun$1.apply(ApplicationProvider.scala:125) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.9.1.jar:2.0.3]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3.apply(ApplicationProvider.scala:112) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
+	at scala.Either$RightProjection.flatMap(Either.scala:277) ~[scala-library.jar:0.11.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
+	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
+	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor.jar:2.0.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
+
+2012-11-07 23:36:47,982 - [WARN] - from play in New I/O  worker #1 
+Applying evolution script for database 'default':
+
+# --- Rev:1,Ups - 3b0a6c7
+create table sound_project (
+id                        bigint not null,
+name                      varchar(255),
+sound                     varchar(255),
+constraint pk_sound_project primary key (id))
+;
+
+create table task (
+id                        bigint not null,
+label                     varchar(255),
+constraint pk_task primary key (id))
+;
+
+create table account (
+email                     varchar(255) not null,
+name                      varchar(255),
+password                  varchar(255),
+constraint pk_account primary key (email))
+;
+
+create sequence sound_project_seq;
+
+create sequence task_seq;
+
+create sequence account_seq;
+
+
+2012-11-07 23:36:48,901 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
+database [default] connected at jdbc:h2:mem:play
+
+2012-11-07 23:36:50,156 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
+Application started (Dev)
+
+2012-11-07 23:38:22,771 - [INFO] - from play in play-akka.actor.default-dispatcher-4 
+database [default] connected at jdbc:h2:mem:play
+
+2012-11-07 23:38:23,863 - [INFO] - from play in play-akka.actor.default-dispatcher-4 
+Application started (Dev)
+
+2012-11-07 23:39:00,576 - [INFO] - from play in play-akka.actor.default-dispatcher-4 
+database [default] connected at jdbc:h2:mem:play
+
+2012-11-07 23:39:01,673 - [INFO] - from play in play-akka.actor.default-dispatcher-4 
+Application started (Dev)
+
+2012-11-08 23:36:49,940 - [ERROR] - from application in New I/O  worker #3 
 
 
 ! Internal server error, for request [GET /] ->
 
-sbt.PlayExceptions$CompilationException: Compilation error [':' expected but identifier found.]
+sbt.PlayExceptions$CompilationException: Compilation error [error: cannot find symbol]
 	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
 	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
 	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
@@ -86,121 +148,33 @@ sbt.PlayExceptions$CompilationException: Compilation error [':' expected but ide
 	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
 	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
 
-2012-11-02 01:31:31,382 - [ERROR] - from application in New I/O  worker #4 
-
-
-! Internal server error, for request [GET /] ->
-
-sbt.PlayExceptions$CompilationException: Compilation error [not found: type login]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:226) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:226) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:224) ~[na:na]
-	at scala.Either$LeftProjection.map(Either.scala:183) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:224) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:219) ~[na:na]
-	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:219) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
-	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
-	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor.jar:2.0.2]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
-
-2012-11-02 01:32:13,484 - [ERROR] - from application in New I/O  worker #4 
-
-
-! Internal server error, for request [GET /] ->
-
-sbt.PlayExceptions$CompilationException: Compilation error [not found: type Login]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:226) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:226) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:224) ~[na:na]
-	at scala.Either$LeftProjection.map(Either.scala:183) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:224) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:219) ~[na:na]
-	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:219) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
-	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
-	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor.jar:2.0.2]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
-
-2012-11-02 01:32:44,456 - [ERROR] - from application in New I/O  worker #4 
-
-
-! Internal server error, for request [GET /] ->
-
-sbt.PlayExceptions$CompilationException: Compilation error [error: method render in class login cannot be applied to given types;]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:226) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:226) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:224) ~[na:na]
-	at scala.Either$LeftProjection.map(Either.scala:183) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:224) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:219) ~[na:na]
-	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:219) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
-	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
-	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor.jar:2.0.2]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
-
-2012-11-02 01:33:47,637 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-11-08 23:38:05,510 - [INFO] - from play in play-akka.actor.default-dispatcher-4 
 database [default] connected at jdbc:h2:mem:play
 
-2012-11-02 01:33:49,183 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-Application started (Dev)
-
-2012-11-02 01:34:27,886 - [ERROR] - from application in New I/O  worker #4 
+2012-11-08 23:38:08,260 - [ERROR] - from application in New I/O  worker #3 
 
 
-! Internal server error, for request [GET /login] ->
+! @6c9h31koi - Internal server error, for request [GET /] ->
 
-sbt.PlayExceptions$CompilationException: Compilation error [value emaile is not a member of models.User]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:427) ~[play_2.9.1.jar:2.0.3]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:448) ~[play_2.9.1.jar:2.0.3]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:414) ~[play_2.9.1.jar:2.0.3]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:412) ~[play_2.9.1.jar:2.0.3]
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:59) ~[scala-library.jar:0.11.3]
+	at scala.collection.immutable.List.foreach(List.scala:45) ~[scala-library.jar:0.11.3]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:412) ~[play_2.9.1.jar:2.0.3]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:60) ~[play_2.9.1.jar:2.0.3]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:60) ~[play_2.9.1.jar:2.0.3]
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:59) ~[scala-library.jar:0.11.3]
+	at scala.collection.immutable.List.foreach(List.scala:45) ~[scala-library.jar:0.11.3]
+	at play.api.Play$.start(Play.scala:60) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3$$anonfun$1.apply(ApplicationProvider.scala:125) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.9.1.jar:2.0.3]
 	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:226) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:226) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:224) ~[na:na]
-	at scala.Either$LeftProjection.map(Either.scala:183) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:224) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:219) ~[na:na]
-	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:219) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3.apply(ApplicationProvider.scala:112) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
+	at scala.Either$RightProjection.flatMap(Either.scala:277) ~[scala-library.jar:0.11.3]
 	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
 	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
 	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
@@ -212,51 +186,93 @@ sbt.PlayExceptions$CompilationException: Compilation error [value emaile is not 
 	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
 	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
 
-2012-11-02 01:34:41,112 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-11-08 23:38:11,340 - [WARN] - from play in New I/O  worker #3 
+Applying evolution script for database 'default':
+
+# --- Rev:1,Ups - 3b0a6c7
+create table sound_project (
+id                        bigint not null,
+name                      varchar(255),
+sound                     varchar(255),
+constraint pk_sound_project primary key (id))
+;
+
+create table task (
+id                        bigint not null,
+label                     varchar(255),
+constraint pk_task primary key (id))
+;
+
+create table account (
+email                     varchar(255) not null,
+name                      varchar(255),
+password                  varchar(255),
+constraint pk_account primary key (email))
+;
+
+create sequence sound_project_seq;
+
+create sequence task_seq;
+
+create sequence account_seq;
+
+
+2012-11-08 23:38:12,103 - [INFO] - from play in play-akka.actor.default-dispatcher-4 
 database [default] connected at jdbc:h2:mem:play
 
-2012-11-02 01:34:42,612 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-11-08 23:38:13,199 - [INFO] - from play in play-akka.actor.default-dispatcher-4 
 Application started (Dev)
 
-2012-11-02 01:35:47,073 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-11-08 23:40:19,319 - [INFO] - from play in play-akka.actor.default-dispatcher-10 
 database [default] connected at jdbc:h2:mem:play
 
-2012-11-02 01:35:48,554 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-11-08 23:40:20,404 - [INFO] - from play in play-akka.actor.default-dispatcher-10 
 Application started (Dev)
 
-2012-11-02 01:36:31,923 - [ERROR] - from application in New I/O  worker #3 
+2012-11-08 23:40:36,298 - [ERROR] - from application in play-akka.actor.actions-dispatcher-12 
 
 
-! Internal server error, for request [GET /login] ->
+! @6c9h31koj - Internal server error, for request [GET /soundProjects] ->
 
-sbt.PlayExceptions$CompilationException: Compilation error [not found: value logins]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:229) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:229) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:226) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:226) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:224) ~[na:na]
-	at scala.Either$LeftProjection.map(Either.scala:183) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:224) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:219) ~[na:na]
-	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.11.3]
-	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:219) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.3]
-	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
-	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor.jar:2.0.2]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
-	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
-
-2012-11-02 01:38:27,309 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-database [default] connected at jdbc:h2:mem:play
-
-2012-11-02 01:38:28,809 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
-Application started (Dev)
+play.core.ActionInvoker$$anonfun$receive$1$$anon$1: Execution exception [[NullPointerException: null]]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:134) [play_2.9.1.jar:2.0.3]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:115) [play_2.9.1.jar:2.0.3]
+	at akka.actor.Actor$class.apply(Actor.scala:318) [akka-actor.jar:2.0.2]
+	at play.core.ActionInvoker.apply(Invoker.scala:113) [play_2.9.1.jar:2.0.3]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:626) [akka-actor.jar:2.0.2]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:197) [akka-actor.jar:2.0.2]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:179) [akka-actor.jar:2.0.2]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:516) [akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) [akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) [akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) [akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) [akka-actor.jar:2.0.2]
+Caused by: java.lang.NullPointerException: null
+	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssoc.createElPropertyValue(BeanPropertyAssoc.java:145) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocOne.buildElPropertyValue(BeanPropertyAssocOne.java:155) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptor.buildElGetValue(BeanDescriptor.java:1886) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptor.getElPropertyValue(BeanDescriptor.java:1854) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptor.getElPropertyDeploy(BeanDescriptor.java:1847) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.expression.AbstractExpression.containsMany(AbstractExpression.java:69) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.util.DefaultExpressionList.containsMany(DefaultExpressionList.java:131) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.initManyWhereJoins(DefaultOrmQuery.java:328) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.createQueryRequest(DefaultServer.java:1165) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1460) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:906) ~[ebean.jar:na]
+	at com.avaje.ebeaninternal.util.DefaultExpressionList.findList(DefaultExpressionList.java:201) ~[ebean.jar:na]
+	at models.SoundProject.getSoundProjetsFromUser(SoundProject.java:45) ~[classes/:na]
+	at controllers.SoundProjects.index(SoundProjects.java:19) ~[classes/:2.0.3]
+	at Routes$$anonfun$routes$1$$anonfun$apply$9$$anonfun$apply$10.apply(routes_routing.scala:92) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$apply$9$$anonfun$apply$10.apply(routes_routing.scala:92) ~[classes/:na]
+	at play.core.Router$HandlerInvoker$$anon$4$$anon$1.invocation(Router.scala:1086) ~[play_2.9.1.jar:2.0.3]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:33) ~[play_2.9.1.jar:2.0.3]
+	at play.GlobalSettings$1.call(GlobalSettings.java:57) ~[play_2.9.1.jar:2.0.3]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.9.1.jar:2.0.3]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:74) ~[play_2.9.1.jar:2.0.3]
+	at play.core.Router$HandlerInvoker$$anon$4$$anon$1.apply(Router.scala:1085) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ActionInvoker$$anonfun$receive$1$$anonfun$6.apply(Invoker.scala:126) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ActionInvoker$$anonfun$receive$1$$anonfun$6.apply(Invoker.scala:126) ~[play_2.9.1.jar:2.0.3]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:17) ~[play_2.9.1.jar:2.0.3]
+	at play.core.ActionInvoker$$anonfun$receive$1.apply(Invoker.scala:125) [play_2.9.1.jar:2.0.3]
+	... 11 common frames omitted
 

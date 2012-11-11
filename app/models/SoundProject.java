@@ -19,7 +19,7 @@ public class SoundProject extends Model {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	public Long Id;
+	public Long id;
 
 	public String name;
 
@@ -76,6 +76,6 @@ public class SoundProject extends Model {
 	}
 	
 	public String toString () {
-		return "SoundProject(" + Id + ") owned by  " + (owner.name);
+		return "SoundProject(" + id + ") owned by  " + (owner.name);
 	}
 }

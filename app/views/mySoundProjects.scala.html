@@ -1,0 +1,49 @@
+@(myProjects: List[SoundProject], user: User, form: Form[SoundProject])
+
+@main(myProjects, user){
+    
+    <header>
+        <hgroup>
+            <h1>MyProject</h1>
+        </hgroup>
+    </header>
+    
+    <article  class="tasks">
+    <ul>
+    	@if( myProjects != null) {
+		@for(project <- myProjects) {
+			<li>
+				@project.name
+			</li>	
+		}
+		}
+	</ul>
+    </article>
+     @helper.form(routes.SoundProjects.add) {
+            
+            @if(form.hasGlobalErrors) { 
+                <p class="error">
+                    @form.globalError.message
+                </p>
+            }
+            
+            @if(flash.contains("success")) {
+                <p class="success">
+                    @flash.get("success")
+                </p>
+            }
+            
+            <p>
+                <input type="name" name="name" placeholder="Name" value="@form("name").value">
+            </p>
+            <p>
+                <input type="sound" name="sound" placeholder="sound">
+            </p>
+            <p>
+                <button type="submit">Add Sound</button>
+            </p>
+            
+        }
+    
+}
+

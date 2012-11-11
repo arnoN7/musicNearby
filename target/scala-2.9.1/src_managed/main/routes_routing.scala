@@ -1,6 +1,6 @@
 // @SOURCE:C:/play-2.0.3/musicNearby/conf/routes
-// @HASH:375bc9c0b1543cd2717f4e496c5d058168e56ff4
-// @DATE:Fri Nov 02 00:40:51 CET 2012
+// @HASH:112fa5161867ade4e4d98144a97894c7c679af19
+// @DATE:Wed Nov 07 23:27:19 CET 2012
 
 import play.core._
 import play.core.Router._
@@ -14,8 +14,8 @@ import Router.queryString
 object Routes extends Router.Routes {
 
 
-// @LINE:6
-val controllers_SoundProjects_index0 = Route("GET", PathPattern(List(StaticPart("/"))))
+// @LINE:7
+val controllers_Application_login0 = Route("GET", PathPattern(List(StaticPart("/"))))
                     
 
 // @LINE:9
@@ -31,33 +31,33 @@ val controllers_Application_logout3 = Route("GET", PathPattern(List(StaticPart("
                     
 
 // @LINE:14
-val controllers_Application_tasks4 = Route("GET", PathPattern(List(StaticPart("/tasks"))))
+val controllers_SoundProjects_index4 = Route("GET", PathPattern(List(StaticPart("/soundProjects"))))
                     
 
 // @LINE:15
-val controllers_Application_newTask5 = Route("POST", PathPattern(List(StaticPart("/tasks"))))
+val controllers_SoundProjects_add5 = Route("POST", PathPattern(List(StaticPart("/soundProjects"))))
                     
 
 // @LINE:16
-val controllers_Application_deleteTask6 = Route("POST", PathPattern(List(StaticPart("/tasks/"),DynamicPart("id", """[^/]+"""),StaticPart("/delete"))))
+val controllers_SoundProjects_delete6 = Route("DELETE", PathPattern(List(StaticPart("/soundProjects/"),DynamicPart("project", """[^/]+"""))))
                     
 
 // @LINE:19
-val controllers_SoundProjects_index7 = Route("GET", PathPattern(List(StaticPart("/soundProjects"))))
+val controllers_Application_javascriptRoutes7 = Route("GET", PathPattern(List(StaticPart("/assets/javascripts/routes"))))
                     
 
 // @LINE:22
 val controllers_Assets_at8 = Route("GET", PathPattern(List(StaticPart("/assets/"),DynamicPart("file", """.+"""))))
                     
-def documentation = List(("""GET""","""/""","""controllers.SoundProjects.index()"""),("""GET""","""/login""","""controllers.Application.login()"""),("""POST""","""/login""","""controllers.Application.authenticate()"""),("""GET""","""/logout""","""controllers.Application.logout()"""),("""GET""","""/tasks""","""controllers.Application.tasks()"""),("""POST""","""/tasks""","""controllers.Application.newTask()"""),("""POST""","""/tasks/$id<[^/]+>/delete""","""controllers.Application.deleteTask(id:Long)"""),("""GET""","""/soundProjects""","""controllers.SoundProjects.index()"""),("""GET""","""/assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""))
+def documentation = List(("""GET""","""/""","""controllers.Application.login()"""),("""GET""","""/login""","""controllers.Application.login()"""),("""POST""","""/login""","""controllers.Application.authenticate()"""),("""GET""","""/logout""","""controllers.Application.logout()"""),("""GET""","""/soundProjects""","""controllers.SoundProjects.index()"""),("""POST""","""/soundProjects""","""controllers.SoundProjects.add()"""),("""DELETE""","""/soundProjects/$project<[^/]+>""","""controllers.SoundProjects.delete(project:Long)"""),("""GET""","""/assets/javascripts/routes""","""controllers.Application.javascriptRoutes()"""),("""GET""","""/assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""))
              
     
 def routes:PartialFunction[RequestHeader,Handler] = {        
 
-// @LINE:6
-case controllers_SoundProjects_index0(params) => {
+// @LINE:7
+case controllers_Application_login0(params) => {
    call { 
-        invokeHandler(_root_.controllers.SoundProjects.index(), HandlerDef(this, "controllers.SoundProjects", "index", Nil))
+        invokeHandler(_root_.controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Nil))
    }
 }
                     
@@ -87,33 +87,33 @@ case controllers_Application_logout3(params) => {
                     
 
 // @LINE:14
-case controllers_Application_tasks4(params) => {
+case controllers_SoundProjects_index4(params) => {
    call { 
-        invokeHandler(_root_.controllers.Application.tasks(), HandlerDef(this, "controllers.Application", "tasks", Nil))
+        invokeHandler(_root_.controllers.SoundProjects.index(), HandlerDef(this, "controllers.SoundProjects", "index", Nil))
    }
 }
                     
 
 // @LINE:15
-case controllers_Application_newTask5(params) => {
+case controllers_SoundProjects_add5(params) => {
    call { 
-        invokeHandler(_root_.controllers.Application.newTask(), HandlerDef(this, "controllers.Application", "newTask", Nil))
+        invokeHandler(_root_.controllers.SoundProjects.add(), HandlerDef(this, "controllers.SoundProjects", "add", Nil))
    }
 }
                     
 
 // @LINE:16
-case controllers_Application_deleteTask6(params) => {
-   call(params.fromPath[Long]("id", None)) { (id) =>
-        invokeHandler(_root_.controllers.Application.deleteTask(id), HandlerDef(this, "controllers.Application", "deleteTask", Seq(classOf[Long])))
+case controllers_SoundProjects_delete6(params) => {
+   call(params.fromPath[Long]("project", None)) { (project) =>
+        invokeHandler(_root_.controllers.SoundProjects.delete(project), HandlerDef(this, "controllers.SoundProjects", "delete", Seq(classOf[Long])))
    }
 }
                     
 
 // @LINE:19
-case controllers_SoundProjects_index7(params) => {
+case controllers_Application_javascriptRoutes7(params) => {
    call { 
-        invokeHandler(_root_.controllers.SoundProjects.index(), HandlerDef(this, "controllers.SoundProjects", "index", Nil))
+        invokeHandler(_root_.controllers.Application.javascriptRoutes(), HandlerDef(this, "controllers.Application", "javascriptRoutes", Nil))
    }
 }
                     
