@@ -3,7 +3,6 @@
 # ~~~~
 
 # Home page
-#GET     /                           		controllers.SoundProjects.index()
 GET     /                           		controllers.Application.login()
 # Authentication
 GET     /login                              controllers.Application.login()
@@ -11,9 +10,9 @@ POST    /login                              controllers.Application.authenticate
 GET     /logout                             controllers.Application.logout()
 
 #SoundProjects
-GET  /soundProjects				controllers.SoundProjects.index()
-POST /soundProjects				controllers.SoundProjects.add()
-DELETE  /soundProjects/:project                  controllers.SoundProjects.delete(project: Long)
+GET  /soundProjects							controllers.SoundProjects.index()
+POST /soundProjects							controllers.SoundProjects.add()
+POST  /soundProjects/:project/delete      	controllers.SoundProjects.delete(project: Long)
 
 # Javascript routing
 GET     /assets/javascripts/routes          controllers.Application.javascriptRoutes()

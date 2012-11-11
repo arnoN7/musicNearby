@@ -1,6 +1,5 @@
 package controllers;
 
-import play.*;
 import play.mvc.*;
 import play.mvc.Http.*;
 
@@ -20,20 +19,11 @@ public class Secured extends Security.Authenticator {
     
     // Access rights
     
-    public static boolean isMemberOf(Long project) {
-//        return Project.isMember(
-//            project,
-//            Context.current().request().username()
-//        );
-    	return true;
-    }
-    
-    public static boolean isOwnerOf(Long task) {
-//        return Task.isOwner(
-//            task,
-//            Context.current().request().username()
-//        );
-    	return true;
+    public static boolean isOwnerOf(Long soundProjectId) {
+        return SoundProject.isOwner(
+        		soundProjectId,
+            Context.current().request().username()
+        );
     }
     
 }

@@ -4,7 +4,7 @@
     
     <header>
         <hgroup>
-            <h1>MyProject</h1>
+            <h1>My Projects</h1>
         </hgroup>
     </header>
     
@@ -13,7 +13,11 @@
     	@if( myProjects != null) {
 		@for(project <- myProjects) {
 			<li>
-				@project.name
+				@project.name @project.sound owned by @project.owner.email
+				@helper.form(routes.SoundProjects.delete( project.id )) {
+                    <input type="submit" value="Delete">
+                }
+
 			</li>	
 		}
 		}

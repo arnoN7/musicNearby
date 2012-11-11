@@ -10,6 +10,11 @@ import javax.persistence.*;
 
 @Entity
 public class Task extends Model {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	public Long id;
 
@@ -23,6 +28,10 @@ public class Task extends Model {
 		return find.all();
 	}
 
+	/**
+	 * Create and Save a user in the DB
+	 * @param task
+	 */
 	public static void create(Task task) {
 		task.save();
 	}

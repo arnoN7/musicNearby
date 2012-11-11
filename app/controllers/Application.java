@@ -4,7 +4,6 @@ import play.*;
 import play.data.*;
 import play.data.validation.Constraints.Required;
 import play.mvc.*;
-
 import models.*;
 import views.html.*;
 
@@ -27,13 +26,20 @@ public class Application extends Controller {
 		}
 
 	}
-	static Form<Task> taskForm = form(Task.class);
 	
 	/**
 	 * Login page.
 	 */
 	public static Result login() {
-		return ok(login.render(form(Application.Login.class)));
+		String user = session("email");
+		if (user != null)
+		{
+			return redirect(routes.SoundProjects.index());
+		} 
+		else
+		{
+			return ok(login.render(form(Application.Login.class)));
+		}
 	}
 
 	/**
@@ -43,9 +49,7 @@ public class Application extends Controller {
 		Form<Login> filledLogin = form(Application.Login.class).bindFromRequest();
 		if (filledLogin.hasErrors()) {
 			return badRequest(login.render(filledLogin));
-			//return ok("WRONG!!!!");
 		} else {
-			//return ok("HELLO " + filledLogin.get().email);
 			session("email", filledLogin.get().email);
 			return redirect(routes.SoundProjects.index());
 		}
@@ -55,17 +59,11 @@ public class Application extends Controller {
 	 * Logout and clean the session.
 	 */
 	public static Result logout() {
-		// session().clear();
-		// flash("success", "You've been logged out");
-		// return redirect(routes.Application.login());
-		return TODO;
+		session().clear();
+		flash("success", "You've been logged out");
+		return redirect(routes.Application.login());
 	}
 
-	public static Result index() {
-		return ok("Hello world");
-		// return TODO;
-	}
-	
 	// -- Javascript routing
 
 	public static Result javascriptRoutes() {

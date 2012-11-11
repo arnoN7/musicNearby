@@ -7,6 +7,7 @@ create table sound_project (
   id                        bigint not null,
   name                      varchar(255),
   sound                     varchar(255),
+  owner_email               varchar(255),
   constraint pk_sound_project primary key (id))
 ;
 
@@ -29,6 +30,8 @@ create sequence task_seq;
 
 create sequence account_seq;
 
+alter table sound_project add constraint fk_sound_project_owner_1 foreign key (owner_email) references account (email) on delete restrict on update restrict;
+create index ix_sound_project_owner_1 on sound_project (owner_email);
 
 
 

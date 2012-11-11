@@ -5,8 +5,6 @@ import javax.persistence.*;
 
 import play.db.ebean.*;
 
-import com.avaje.ebean.*;
-
 /**
  * Sound Project managed by Ebean
  */
@@ -25,6 +23,7 @@ public class SoundProject extends Model {
 
 	public String sound;
 
+	@ManyToOne
 	public User owner;
 
 	public SoundProject(String name, String sound, User owner) {
@@ -42,6 +41,7 @@ public class SoundProject extends Model {
 	 * GetSoundsFromAUser
 	 */
 	public static List<SoundProject> getSoundProjetsFromUser(String userEmail) {
+		
 		return find.where().eq("owner.email", userEmail).findList();
 	}
 
@@ -50,9 +50,14 @@ public class SoundProject extends Model {
 	 */
 	public static SoundProject create(String name, String sound,
 			String ownerEmail) {
-		SoundProject soundProject = new SoundProject(name, sound,
-				User.findByEmail(ownerEmail));
+		User projectOwner = User.findByEmail(ownerEmail);
+		SoundProject soundProject = null;
+		if (projectOwner != null)
+		{
+			soundProject = new SoundProject(name, sound,
+					projectOwner);
 		soundProject.save();
+		}
 		return soundProject;
 
 	}
