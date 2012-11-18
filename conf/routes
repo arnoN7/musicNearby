@@ -9,6 +9,17 @@ GET     /login                              controllers.Application.login()
 POST    /login                              controllers.Application.authenticate()
 GET     /logout                             controllers.Application.logout()
 
+#jobOffers
+GET  /jobOffers							controllers.JobOffers.index()
+GET  /jobOffers/new						controllers.JobOffers.addJobOffer()
+POST /jobOffers/save					controllers.JobOffers.saveOffer()
+POST /jobOffers/:jobId/delete      		controllers.JobOffers.delete(jobId: Long)
+GET  /jobOffers/:jobId/edit      		controllers.JobOffers.editJobs(jobId: Long)
+GET  /jobOffers/upload      		controllers.ReviewManagement.upload()
+
+#Reviews
+GET /reviewOffers						controllers.ReviewOffers.index()
+
 #SoundProjects
 GET  /soundProjects							controllers.SoundProjects.index()
 POST /soundProjects							controllers.SoundProjects.add()
@@ -19,3 +30,5 @@ GET     /assets/javascripts/routes          controllers.Application.javascriptRo
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET 	/admin								controllers.Administration.index()

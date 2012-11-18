@@ -1,0 +1,74 @@
+@(myJobOffers: List[JobOffer], user: User, form: Form[JobOffer])
+
+@OfferOverview(jobOffer: JobOffer) = {
+<tr>
+	<td>
+		<a href="@routes.JobOffers.editJobs(jobOffer.id)">@jobOffer.jobName</a>
+	</td>
+	<td>@jobOffer.companyName</td>
+	<td><a href="@jobOffer.jobURL" target="_blank">@jobOffer.jobURL</a></td>
+	<td>
+      <div class="dropdown">
+        <a class="dropdown-toggle" id="drop5" role="button" data-toggle="dropdown" href="#">
+        	@jobOffer.status.toString() <b class="caret"></b></a>
+        <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+          <li><a tabindex="-1" href="#">@Status.New.toString()</a></li>
+          <li><a tabindex="-1" href="#">@Status.Applied.toString()</a></li>
+          <li><a tabindex="-1" href="#">@Status.Interview_Scheduled.toString()</a></li>
+          <li><a tabindex="-1" href="#">@Status.Declined.toString()</a></li>
+        </ul>
+      </div>
+	</td>
+	<td>
+	@helper.form(routes.JobOffers.delete( jobOffer.id )) {
+		<input type="submit" value="Supprimer">
+    }
+	</td>
+</tr>
+}
+
+@**********************************
+* Helper generating table headers *
+***********************************@
+@header(key:String, title:String) = {
+    <th class="@key.replace(".","_") header">
+        <a href="#">@title</a>
+    </th>
+}
+
+@main(user){
+    
+    <header>
+        <hgroup>
+            <h1>Mes offres d'emploi</h1>
+        </hgroup>
+    </header>
+	<div class="row">
+		<div class="span6">
+        	<form action="#" method="GET">
+          	  <input type="search" id="searchbox" name="f" placeholder="Filtrer les offres par nom">
+           	  <input type="submit" id="searchsubmit" value="Filtrer par nom" class="btn primary">
+       		</form>
+       	</div>
+       	<div class="span3">
+       		@newOffer(user, form)
+        </div>
+    </div>
+    <table class="table table-striped table-hover">
+    <thead>
+    	<tr>
+        	@header("name", "Nom du poste")
+            @header("introduced", "Entreprise")
+            @header("company.name", "Lien vers l'offre")
+            @header("discontinued", "Statut")
+            @header("company.name", "")
+		</tr>
+	</thead>
+    	@if( myJobOffers != null) {
+		@for(jobOffer <- myJobOffers) {
+				@OfferOverview(jobOffer)
+		}
+		}
+	</table>   
+}
+

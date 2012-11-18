@@ -19,9 +19,18 @@ public class Secured extends Security.Authenticator {
     
     // Access rights
     
-    public static boolean isOwnerOf(Long soundProjectId) {
+    public static boolean isOwnerOfSound(Long soundProjectId) {
         return SoundProject.isOwner(
         		soundProjectId,
+            Context.current().request().username()
+        );
+    }
+    
+    // Access rights
+    
+    public static boolean isOwnerOfJobOffer(Long jobId) {
+        return JobOffer.isOwner(
+        		jobId,
             Context.current().request().username()
         );
     }

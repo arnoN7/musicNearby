@@ -1,0 +1,52 @@
+@(form: Form[JobOffer], formType: FormType)
+
+@formField(text: String) = {
+	@if((formType == FormType.New) || (formType == FormType.New)) {
+		<input type="@text" name="@text" placeholder="@text" value="@form(text).value">
+	} else {
+		<span class="input-xlarge uneditable-input">@form(text).value</span>	
+	}
+}
+
+	@if(formType == FormType.New) {
+  		</div>
+  		<div class="modal-body">
+  	}
+    @helper.form(routes.JobOffers.saveOffer) {
+    
+    		@if(form.hasGlobalErrors) { 
+    		<p class="error">
+    		@form.globalError.message
+    		</p>
+    		}
+    
+    	 	@if(flash.contains("success")) {
+    		<p class="success">
+    			@flash.get("success")
+        		</p>
+        		}
+        
+        		<p>
+        			@formField("jobName")
+        		</p>
+        		<p>
+        			@formField("jobURL")
+        		</p>
+        		<p>
+        			@formField("companyName")
+            	</p>
+            	<p>
+            		<textarea 
+            		class="field @if((formType != FormType.New) && (formType != FormType.New)) {span8} else {span4}" type="jobDescription" name="jobDescription" placeholder="@form("jobDescription").value" rows="10" @if((formType != FormType.New) && (formType != FormType.New)) {readonly}></textarea>
+            	</p>
+@if(formType == FormType.New) {
+    </div>
+  	<div class="modal-footer">
+    	<button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+    	<button class="btn btn-primary" type="submit">Ajouter l'Offre</button>
+  	</div>
+}
+            
+    }
+    
+

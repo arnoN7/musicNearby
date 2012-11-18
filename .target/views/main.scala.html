@@ -1,43 +1,85 @@
-@(projects: List[SoundProject], user: User)(body: Html)
+@(user: User)(body: Html)
 
-<html>
-    <head>
-        <title>MusicNearby</title>
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-1.7.1.js")"></script>
-        <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-play-1.7.1.js")"></script>
-        <script type="text/javascript" src="@routes.Assets.at("javascripts/underscore-min.js")"></script>
-        <script type="text/javascript" src="@routes.Assets.at("javascripts/backbone-min.js")"></script>
-        <script type="text/javascript" src="@routes.Assets.at("javascripts/main.js")"></script>
-        <script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
-    </head>
-    <body>
-        <header>
-            <a href="@routes.SoundProjects.index" id="logo"><span>Zen</span>tasks</a>
-            <dl id="user">
-                <dt>@user.name <span>(@user.email)</span></dt>
-                <dd>
-                    <a href="@routes.Application.logout()">Logout</a>
-                </dd>
-            </dl>
-        </header>
-        <nav>
-            <h4 class="dashboard"><a href="#/">Your Songs</a></h4>
-            <ul id="soundProjects">
-            	@if(projects != null){
-            	
-                @for(project <- projects) {
-                	<li>
-                	@project.name
-                	</li>
-                }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CoFindMyJob</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link  href="@routes.Assets.at("stylesheets/bootstrap.css")" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="@routes.Assets.at("stylesheets/bootstrap-responsive.css")" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Co Find my Job</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="@routes.JobOffers.index()">Mes Offres d'emploi</a></li>
+              <li><a href="@routes.ReviewOffers.index()">Relecteurs</a></li>
+              <li><a href="#">@user.name</a></li> 
+              <li><a href="@routes.Application.logout()">Logout</a></li> 
             </ul>
-            <button id="newGroup">New group</button>
-        </nav>
-        <section id="main">
+           	<!-- <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form> -->
+            
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+      </div>
+
+	<div class="container">
             @body
-        </section>
+	</div>
+	
+	    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="@routes.Assets.at("javascripts/jquery.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-transition.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-alert.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-modal.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-dropdown.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-scrollspy.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-tab.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-tooltip.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-popover.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-button.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-collapse.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-carousel.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-typeahead.js")"></script>
     </body>
 </html>
 

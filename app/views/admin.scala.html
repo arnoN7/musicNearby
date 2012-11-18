@@ -1,0 +1,25 @@
+@(users: List[User])
+
+<html>
+    <head>
+        <title>CoFindMyJob</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
+    </head>
+    <body>
+        <header>
+            <a href="@routes.JobOffers.index" id="logo"><span>Co</span>FindMyJob</a>
+        </header>
+        @for(user <- users) {
+        	@user.email
+        }
+        
+        <p class="note">
+            Try <em>guillaume@@sample.com</em> with <em>secret</em> as password.
+        </p>
+            
+    </body>
+</html>
+    
+
+

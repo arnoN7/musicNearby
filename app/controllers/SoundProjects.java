@@ -46,7 +46,7 @@ public class SoundProjects extends Controller {
 	 * Delete a project.
 	 */
 	public static Result delete(Long project) {
-		if (Secured.isOwnerOf(project)) {
+		if (Secured.isOwnerOfSound(project)) {
 			SoundProject.find.ref(project).delete();
 			return ok(mySoundProjects.render(
 					SoundProject.getSoundProjetsFromUser(request().username()),

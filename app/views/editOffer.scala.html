@@ -1,0 +1,21 @@
+@(user: User, form: Form[JobOffer], offer: JobOffer)
+
+@main(user){
+    
+    <header>
+        <hgroup>
+            <h1>Détail de l'offre</h1>
+        </hgroup>
+    </header>
+	@offerForm(form, FormType.Display)   
+	
+	@helper.form(action = routes.ReviewManagement.upload(), 'enctype -> "multipart/form-data", 'method -> "POST") {
+    
+    	<input type="file" name="picture">
+    	<p>
+        	<input type="submit" value="Ajout Fichier">
+    	</p>
+    
+	}
+}
+

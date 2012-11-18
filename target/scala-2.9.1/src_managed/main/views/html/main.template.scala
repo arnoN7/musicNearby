@@ -21,72 +21,114 @@ import com.avaje.ebean._
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object main extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template3[List[SoundProject],User,Html,play.api.templates.Html] {
+object main extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template2[User,Html,play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(projects: List[SoundProject], user: User)(body: Html):play.api.templates.Html = {
+    def apply/*1.2*/(user: User)(body: Html):play.api.templates.Html = {
         _display_ {
 
-Seq[Any](format.raw/*1.56*/("""
+Seq[Any](format.raw/*1.26*/("""
 
-<html>
-    <head>
-        <title>MusicNearby</title>
-        <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*6.59*/routes/*6.65*/.Assets.at("images/favicon.png"))),format.raw/*6.97*/("""">
-        <link rel="stylesheet" type="text/css" media="screen" href=""""),_display_(Seq[Any](/*7.70*/routes/*7.76*/.Assets.at("stylesheets/main.css"))),format.raw/*7.110*/("""">
-        <script type="text/javascript" src=""""),_display_(Seq[Any](/*8.46*/routes/*8.52*/.Assets.at("javascripts/jquery-1.7.1.js"))),format.raw/*8.93*/(""""></script>
-        <script type="text/javascript" src=""""),_display_(Seq[Any](/*9.46*/routes/*9.52*/.Assets.at("javascripts/jquery-play-1.7.1.js"))),format.raw/*9.98*/(""""></script>
-        <script type="text/javascript" src=""""),_display_(Seq[Any](/*10.46*/routes/*10.52*/.Assets.at("javascripts/underscore-min.js"))),format.raw/*10.95*/(""""></script>
-        <script type="text/javascript" src=""""),_display_(Seq[Any](/*11.46*/routes/*11.52*/.Assets.at("javascripts/backbone-min.js"))),format.raw/*11.93*/(""""></script>
-        <script type="text/javascript" src=""""),_display_(Seq[Any](/*12.46*/routes/*12.52*/.Assets.at("javascripts/main.js"))),format.raw/*12.85*/(""""></script>
-        <script type="text/javascript" src=""""),_display_(Seq[Any](/*13.46*/routes/*13.52*/.Application.javascriptRoutes)),format.raw/*13.81*/(""""></script>
-    </head>
-    <body>
-        <header>
-            <a href=""""),_display_(Seq[Any](/*17.23*/routes/*17.29*/.SoundProjects.index)),format.raw/*17.49*/("""" id="logo"><span>Zen</span>tasks</a>
-            <dl id="user">
-                <dt>"""),_display_(Seq[Any](/*19.22*/user/*19.26*/.name)),format.raw/*19.31*/(""" <span>("""),_display_(Seq[Any](/*19.40*/user/*19.44*/.email)),format.raw/*19.50*/(""")</span></dt>
-                <dd>
-                    <a href=""""),_display_(Seq[Any](/*21.31*/routes/*21.37*/.Application.logout())),format.raw/*21.58*/("""">Logout</a>
-                </dd>
-            </dl>
-        </header>
-        <nav>
-            <h4 class="dashboard"><a href="#/">Your Songs</a></h4>
-            <ul id="soundProjects">
-            	"""),_display_(Seq[Any](/*28.15*/if(projects != null)/*28.35*/{_display_(Seq[Any](format.raw/*28.36*/("""
-            	
-                """),_display_(Seq[Any](/*30.18*/for(project <- projects) yield /*30.42*/ {_display_(Seq[Any](format.raw/*30.44*/("""
-                	<li>
-                	"""),_display_(Seq[Any](/*32.19*/project/*32.26*/.name)),format.raw/*32.31*/("""
-                	</li>
-                """)))}))))})),format.raw/*34.19*/("""
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CoFindMyJob</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link  href=""""),_display_(Seq[Any](/*13.19*/routes/*13.25*/.Assets.at("stylesheets/bootstrap.css"))),format.raw/*13.64*/("""" rel="stylesheet">
+    <style type="text/css">
+      body """),format.raw("""{"""),format.raw/*15.13*/("""
+        padding-top: 60px;
+        padding-bottom: 40px;
+      """),format.raw("""}"""),format.raw/*18.8*/("""
+    </style>
+    <link href=""""),_display_(Seq[Any](/*20.18*/routes/*20.24*/.Assets.at("stylesheets/bootstrap-responsive.css"))),format.raw/*20.74*/("""" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*28.55*/routes/*28.61*/.Assets.at("images/favicon.png"))),format.raw/*28.93*/("""">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Co Find my Job</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href=""""),_display_(Seq[Any](/*47.44*/routes/*47.50*/.JobOffers.index())),format.raw/*47.68*/("""">Mes Offres d'emploi</a></li>
+              <li><a href=""""),_display_(Seq[Any](/*48.29*/routes/*48.35*/.ReviewOffers.index())),format.raw/*48.56*/("""">Relecteurs</a></li>
+              <li><a href="#">"""),_display_(Seq[Any](/*49.32*/user/*49.36*/.name)),format.raw/*49.41*/("""</a></li> 
+              <li><a href=""""),_display_(Seq[Any](/*50.29*/routes/*50.35*/.Application.logout())),format.raw/*50.56*/("""">Logout</a></li> 
             </ul>
-            <button id="newGroup">New group</button>
-        </nav>
-        <section id="main">
-            """),_display_(Seq[Any](/*39.14*/body)),format.raw/*39.18*/("""
-        </section>
+           	<!-- <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form> -->
+            
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+      </div>
+
+	<div class="container">
+            """),_display_(Seq[Any](/*64.14*/body)),format.raw/*64.18*/("""
+	</div>
+	
+	    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src=""""),_display_(Seq[Any](/*70.19*/routes/*70.25*/.Assets.at("javascripts/jquery.js"))),format.raw/*70.60*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*71.19*/routes/*71.25*/.Assets.at("javascripts/bootstrap-transition.js"))),format.raw/*71.74*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*72.19*/routes/*72.25*/.Assets.at("javascripts/bootstrap-alert.js"))),format.raw/*72.69*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*73.19*/routes/*73.25*/.Assets.at("javascripts/bootstrap-modal.js"))),format.raw/*73.69*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*74.19*/routes/*74.25*/.Assets.at("javascripts/bootstrap-dropdown.js"))),format.raw/*74.72*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*75.19*/routes/*75.25*/.Assets.at("javascripts/bootstrap-scrollspy.js"))),format.raw/*75.73*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*76.19*/routes/*76.25*/.Assets.at("javascripts/bootstrap-tab.js"))),format.raw/*76.67*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*77.19*/routes/*77.25*/.Assets.at("javascripts/bootstrap-tooltip.js"))),format.raw/*77.71*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*78.19*/routes/*78.25*/.Assets.at("javascripts/bootstrap-popover.js"))),format.raw/*78.71*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*79.19*/routes/*79.25*/.Assets.at("javascripts/bootstrap-button.js"))),format.raw/*79.70*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*80.19*/routes/*80.25*/.Assets.at("javascripts/bootstrap-collapse.js"))),format.raw/*80.72*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*81.19*/routes/*81.25*/.Assets.at("javascripts/bootstrap-carousel.js"))),format.raw/*81.72*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*82.19*/routes/*82.25*/.Assets.at("javascripts/bootstrap-typeahead.js"))),format.raw/*82.73*/(""""></script>
     </body>
 </html>
 
 """))}
     }
     
-    def render(projects:List[SoundProject],user:User,body:Html) = apply(projects,user)(body)
+    def render(user:User,body:Html) = apply(user)(body)
     
-    def f:((List[SoundProject],User) => (Html) => play.api.templates.Html) = (projects,user) => (body) => apply(projects,user)(body)
+    def f:((User) => (Html) => play.api.templates.Html) = (user) => (body) => apply(user)(body)
     
     def ref = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Nov 11 23:46:14 CET 2012
+                    DATE: Sat Nov 17 23:43:53 CET 2012
                     SOURCE: C:/play-2.0.3/musicNearby/app/views/main.scala.html
-                    HASH: 96c85a5627d7b4632403ce968ae63d2d9696c24e
-                    MATRIX: 776->1|907->55|1055->168|1069->174|1122->206|1229->278|1243->284|1299->318|1382->366|1396->372|1458->413|1550->470|1564->476|1631->522|1724->579|1739->585|1804->628|1897->685|1912->691|1975->732|2068->789|2083->795|2138->828|2231->885|2246->891|2297->920|2407->994|2422->1000|2464->1020|2586->1106|2599->1110|2626->1115|2671->1124|2684->1128|2712->1134|2813->1199|2828->1205|2871->1226|3109->1428|3138->1448|3177->1449|3245->1481|3285->1505|3325->1507|3402->1548|3418->1555|3445->1560|3523->1602|3687->1730|3713->1734
-                    LINES: 27->1|30->1|35->6|35->6|35->6|36->7|36->7|36->7|37->8|37->8|37->8|38->9|38->9|38->9|39->10|39->10|39->10|40->11|40->11|40->11|41->12|41->12|41->12|42->13|42->13|42->13|46->17|46->17|46->17|48->19|48->19|48->19|48->19|48->19|48->19|50->21|50->21|50->21|57->28|57->28|57->28|59->30|59->30|59->30|61->32|61->32|61->32|63->34|68->39|68->39
+                    HASH: 75ca2920f0a3cf6372a8d270550ceffe47b7a264
+                    MATRIX: 757->1|858->25|1190->321|1205->327|1266->366|1373->426|1484->491|1551->522|1566->528|1638->578|1964->868|1979->874|2033->906|3081->1918|3096->1924|3136->1942|3231->2001|3246->2007|3289->2028|3378->2081|3391->2085|3418->2090|3493->2129|3508->2135|3551->2156|4043->2612|4069->2616|4289->2800|4304->2806|4361->2841|4427->2871|4442->2877|4513->2926|4579->2956|4594->2962|4660->3006|4726->3036|4741->3042|4807->3086|4873->3116|4888->3122|4957->3169|5023->3199|5038->3205|5108->3253|5174->3283|5189->3289|5253->3331|5319->3361|5334->3367|5402->3413|5468->3443|5483->3449|5551->3495|5617->3525|5632->3531|5699->3576|5765->3606|5780->3612|5849->3659|5915->3689|5930->3695|5999->3742|6065->3772|6080->3778|6150->3826
+                    LINES: 27->1|30->1|42->13|42->13|42->13|44->15|47->18|49->20|49->20|49->20|57->28|57->28|57->28|76->47|76->47|76->47|77->48|77->48|77->48|78->49|78->49|78->49|79->50|79->50|79->50|93->64|93->64|99->70|99->70|99->70|100->71|100->71|100->71|101->72|101->72|101->72|102->73|102->73|102->73|103->74|103->74|103->74|104->75|104->75|104->75|105->76|105->76|105->76|106->77|106->77|106->77|107->78|107->78|107->78|108->79|108->79|108->79|109->80|109->80|109->80|110->81|110->81|110->81|111->82|111->82|111->82
                     -- GENERATED --
                 */
             

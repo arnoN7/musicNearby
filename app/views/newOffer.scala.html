@@ -1,0 +1,13 @@
+@(user: User, form: Form[JobOffer])
+
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Ajouter une offre d'emploi</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    		<h3 id="myModalLabel">Ajouter ici une offre d'emploi</h3>
+	@offerForm(form, FormType.New)
+</div>
+    
+

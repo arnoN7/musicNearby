@@ -20,7 +20,7 @@ public class Application extends Controller {
 
 		public String validate() {
 			if (User.authenticate(email, password) == null) {
-				return "Invalid user or password";
+				return "Invalid user or password " + email + password;
 			}
 			return null;
 		}
@@ -34,7 +34,7 @@ public class Application extends Controller {
 		String user = session("email");
 		if (user != null)
 		{
-			return redirect(routes.SoundProjects.index());
+			return redirect(routes.JobOffers.index());
 		} 
 		else
 		{
@@ -51,7 +51,7 @@ public class Application extends Controller {
 			return badRequest(login.render(filledLogin));
 		} else {
 			session("email", filledLogin.get().email);
-			return redirect(routes.SoundProjects.index());
+			return redirect(routes.JobOffers.index());
 		}
 	}
 
